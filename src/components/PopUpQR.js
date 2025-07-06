@@ -20,7 +20,7 @@ export default function PopUpQR() {
         }
         qrgenerator();
         backupCodegenerator();
-    }, [])
+    },)
     
 
   const [copiedCode, setCopiedCode] = useState(null);

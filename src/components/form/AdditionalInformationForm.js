@@ -17,11 +17,11 @@ const AdditionalInformationForm = ({ onSubmit }) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleArrayChange = (field, index, value) => {
-    const updatedArray = [...formData[field]];
-    updatedArray[index] = value;
-    setFormData(prev => ({ ...prev, [field]: updatedArray }));
-  };
+  // const handleArrayChange = (field, index, value) => {
+  //   const updatedArray = [...formData[field]];
+  //   updatedArray[index] = value;
+  //   setFormData(prev => ({ ...prev, [field]: updatedArray }));
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();

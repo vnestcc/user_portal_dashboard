@@ -4,7 +4,7 @@ import { useAuth } from '../auth/AuthProvider';
 
 const apiUrl = process.env.REACT_APP_BACKEND_API;
 
-const ProfilePopup = ({ user, isOpen, onClose }) => {
+const ProfilePopup = ({ user, isOpen, onClose, companyName }) => {
     const {token,logout} = useAuth();
     const [userProfile, setUserProfile] = useState({});
     const [isEditing, setIsEditing] = useState(false);
@@ -246,7 +246,7 @@ const ProfilePopup = ({ user, isOpen, onClose }) => {
                         <ProfileField 
                             icon={Building} 
                             label="Company" 
-                            value={userProfile.company || user?.company} 
+                            value={userProfile.company || user?.company || companyName} 
                             field="company"
                         />
 

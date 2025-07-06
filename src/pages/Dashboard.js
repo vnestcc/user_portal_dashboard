@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import { User, LogOut, Building2, Plus, Save, X, BarChart3, TrendingUp, Users, StepBack} from 'lucide-react';
+import { User, LogOut, Building2, Plus, Save, X, StepBack} from 'lucide-react';
 import { useAuth } from '../auth/AuthProvider';
 import PopUpQR from '../components/PopUpQR';
 import ProfilePopup from '../components/Profile';
@@ -15,6 +15,7 @@ const DashboardPage = () => {
   const [companies, setCompanies] = useState([]);
   const [companyId, setCompanyId]=useState();
   const [view,setView]=useState("")
+  const [companyName, setCompanyName]=useState();
   const [formData, setFormData] = useState({
     company_name: '',
     sector: '',
@@ -35,6 +36,7 @@ const DashboardPage = () => {
         });
         
         const data = await response.json();
+        setCompanyName(data.name);
         setCompanyId(data.id);
         if(data.error==='User does not belong to any company'){
           setView('create')
@@ -49,7 +51,7 @@ const DashboardPage = () => {
         });
 
         const data2 = await response2.json();
-console.log(data2);
+// console.log(data2);
         if (response.ok && response2.ok) {
           
           if(data2.length===0){
@@ -112,7 +114,6 @@ console.log(data2);
         });
 
         const data = await response.json();
-
         if (response.ok) {
           setCompanyId(data.company_id);
           setView("add_details")
@@ -137,7 +138,7 @@ console.log(data2);
     
 
   };
-
+console.log(companies)
   const handleCancel = () => {
     setShowCreateForm(false);
     setFormData({
@@ -358,6 +359,7 @@ console.log(data2);
         user={user}
         isOpen={showProfilePopup}
         onClose={() => setShowProfilePopup(false)}
+        companyName={companyName}
       />
     </div>
   );

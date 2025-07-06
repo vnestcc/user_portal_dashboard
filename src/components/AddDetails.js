@@ -36,6 +36,7 @@ const AddDetailsSection = ({companyId}) => {
   const [timePeriod, setTimePeriod] = useState({ quarter: 'Q1', year: new Date().getFullYear() });
 
   const { token } = useAuth();
+  // console.log(companyId)
 
   const handleSubmit = async (formData) => {
     // const payload = {
@@ -60,7 +61,7 @@ const AddDetailsSection = ({companyId}) => {
 
           const data2 = await response2.json();
 
-          console.log(data2)
+          console.log("set: ",data2)
           
           // if (data2.message!=="Quarter created successfully") {
           //   window.alert("Something went wrong !!!")

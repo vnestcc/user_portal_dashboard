@@ -24,6 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "cp _routes.json build/",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -10,7 +10,10 @@ import LoginSignup from './pages/LoginSignUp';
 import Metrics from './components/metrics/Metrics';
 
 let allRoutes=createBrowserRouter(
-  [
+  [{
+      path: '/',
+      element:<AuthProvider><LoginSignup/></AuthProvider>
+    },
     {
       path: '/user/dashboard',
       element:<AuthProvider><ProtectedRoute><DashboardPage /></ProtectedRoute></AuthProvider>
